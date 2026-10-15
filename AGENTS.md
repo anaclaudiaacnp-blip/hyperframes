@@ -109,3 +109,36 @@ skills/                 → AI agent skill definitions
 
 - Docs: https://hyperframes.heygen.com/introduction
 - Catalog (50+ blocks): https://hyperframes.heygen.com/catalog/blocks/data-chart
+
+## Preferências permanentes — edição de vídeos para redes sociais
+
+Este projeto é o ambiente de edição de vídeos do usuário, com foco em Instagram. As instruções originais do HyperFrames acima continuam válidas. Aplique as preferências abaixo aos próximos trabalhos; pedidos específicos do usuário prevalecem sobre os padrões.
+
+### Atendimento e fluxo de edição
+
+- Comunique-se em português. Use os vídeos enviados pelo usuário como material de origem e preserve os arquivos originais.
+- Leia `skills/hyperframes/SKILL.md` como ponto de entrada e selecione as skills de acordo com a edição solicitada. Consulte as instruções locais antes de escrever composições.
+- Para cortes, montagem e reorganização de trechos, use `general-video` e `hyperframes-core`. Para reenquadramentos e zooms animados, acrescente `hyperframes-keyframes`.
+- Use `embedded-captions` para legendas sobre filmagem preservada; `talking-head-recut` para elementos gráficos sobre filmagem preservada; `hyperframes-audio` para mixagem; `media-use` para transcrição, tratamento e preparação de mídia; e `hyperframes-cli` para validação e exportação.
+- Inspecione duração, resolução, orientação, taxa de quadros e áudio dos arquivos recebidos antes de editar. Não invente transcrições; confira nomes, números e sincronismo das legendas.
+- Aproveite as instruções já fornecidas. Pergunte apenas pelo que faltar para definir a edição, como objetivo, duração ou trechos essenciais; resolva escolhas técnicas rotineiras sem confirmações repetidas.
+- Preserve o sentido das falas e a continuidade. Escolha ritmo, transições, textos e efeitos conforme o conteúdo e o pedido; não aplique um estilo visual ou musical fixo a todos os trabalhos.
+
+### Padrão de entrega para Instagram Reels
+
+- Exporte em **MP4, preferencialmente 1080 × 1920 pixels, vertical 9:16**, salvo pedido diferente. Use vídeo H.264, pixel format `yuv420p`, áudio AAC quando houver áudio e `faststart` quando suportado.
+- Use 30 fps como padrão; preserve ou ajuste a taxa conforme a fonte e a intenção do projeto. Não prometa aumentar o detalhe de fontes de baixa resolução por meio de upscale.
+- Reenquadre sem distorcer a imagem, mantendo rostos, ações e informações essenciais visíveis. Quando o corte vertical prejudicar o conteúdo, use uma composição que preserve essas informações.
+- Mantenha títulos, legendas e chamadas legíveis no celular e afastados das bordas e das áreas ocupadas pelos controles do Instagram. Verifique a posição no enquadramento final.
+- Quando houver legendas, mantenha bom contraste, tamanho legível, quebras naturais e sincronismo com a fala. Quando houver música, preserve a inteligibilidade da voz e evite clipping.
+
+### Organização, validação e continuidade
+
+- Organize cada trabalho em `videos/<nome-do-projeto>/`, caminho já ignorado pelo Git, separando originais, composição, recursos e exportações. Não sobrescreva exportações anteriores sem necessidade; use nomes claros com versões.
+- Registre o briefing e as decisões de edição no projeto, seguindo os arquivos previstos pela skill escolhida, para permitir retomadas e revisões.
+- Mantenha trabalhos de vídeo separados do código do framework. Use o checkout existente; não crie worktrees sem pedido explícito.
+- Neste ambiente de nuvem, quando disponível, ative as ferramentas com `source /workspace/.tools/hyperframes-env.sh`. Consulte as instruções salvas de inicialização se precisar reiniciar o Studio; processos não são persistentes entre máquinas.
+- Execute `hyperframes lint` e `hyperframes check` no projeto após criar ou alterar composições HTML, conforme as instruções originais. Investigue falhas antes de considerar a composição pronta.
+- Após exportar, confira com `ffprobe` o contêiner, codecs, resolução, duração, taxa de quadros e presença de áudio esperada. Verifique quadros representativos e o sincronismo do áudio e das legendas antes da entrega; relate qualquer verificação que não pôde executar.
+- Entregue um link para o MP4 gerado, com uma descrição breve das alterações e das características do arquivo. Não declare sucesso antes de verificar o arquivo final.
+- Não publique nas redes sociais nem envie arquivos a terceiros sem instrução explícita. Se uma etapa exigir credenciais ou serviço externo, verifique o que já está disponível e solicite apenas o requisito ausente, sem pedir segredos em chat.
